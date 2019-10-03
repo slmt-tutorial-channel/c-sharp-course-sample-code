@@ -1,0 +1,13 @@
+# C# projects
+bin
+obj
+
+# VS
+.vs
+packages
+
+# Unit Test
+TestResults
+
+# Configurations
+debug.config
