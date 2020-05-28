@@ -29,6 +29,7 @@ $ git clone https://github.com/slmt-tutorial-channel/c-sharp-course-sample-code.
 - [第二課 - IDE 跟 Hello World](class-1-10/Class2)
 - [第三課 - 程式結構與進入點](class-1-10/Class3)
 - [第四課 - 視窗與按鈕](class-1-10/Class4)
+- [第四十七課 - 多型性 (Polymorphism)](class-41-50/Class47)
 
 ## 錯誤回報
 
