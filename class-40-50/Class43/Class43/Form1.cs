@@ -54,7 +54,7 @@ namespace Class43
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            //可見果然不必再用new做個執行個體才行
+            //可見果然不必再用new做個執行個體才行(重構小山老師菩薩的)
             if (Board.CanBePlaced(e.X, e.Y))
                 Cursor = Cursors.Hand;
             else

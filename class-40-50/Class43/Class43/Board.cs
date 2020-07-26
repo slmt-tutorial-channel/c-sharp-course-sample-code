@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Class43
 {
-    //棋盤總承-整個五子棋遊戲在結束前，棋盤都只有一個，故不必產生其類別的執行個體
+    //棋盤總承-整個五子棋遊戲在結束前，棋盤都只有一個，故不必產生其類別的執行個體(重構小山老師菩薩的)https://youtu.be/apQrPURLYZU
     public abstract class Board
     {
         //棋盤邊欄之寬徑
@@ -18,8 +18,8 @@ namespace Class43
         private static readonly int NODE_DISTRANCE = 75;
         //沒有適當下棋子的位置（節點）
         private static readonly Point NO_MATCH_NODE = new Point(-1, -1);
-        
-        //指定static則不必再用new創建執行個體才能用此成員函式        
+
+        //指定static則不必再用new創建執行個體才能用此成員函式(重構小山老師菩薩的)        
         internal static bool CanBePlaced(int x, int y)
         {
             //TODO:找出最近的節點
@@ -48,7 +48,7 @@ namespace Class43
 
         private static int FindTheClosestNode(int pos)
         {
-            //如果游標在棋盤邊欄則回傳 - 1
+            //如果游標在棋盤邊欄則回傳 - 1//小山老師菩薩作「pos < OFFSET- NODE_RADIUS」https://youtu.be/apQrPURLYZU
             if (pos + NODE_RADIUS < OFFSET)
                 return -1;
             pos -= OFFSET;
