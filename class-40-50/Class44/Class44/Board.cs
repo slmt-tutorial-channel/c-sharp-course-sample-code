@@ -95,7 +95,7 @@ namespace Class44
             int quotient = pos / NODE_DISTRANCE;
             int remainder = pos % NODE_DISTRANCE;
             //若大於可下棋子的節點數
-            if (quotient > NODE_COUNT_ONESIDE)
+            if (quotient >= NODE_COUNT_ONESIDE)
                 return -1;
             if (remainder <= NODE_RADIUS)
             {
@@ -103,7 +103,7 @@ namespace Class44
             }
             else if (remainder >= NODE_DISTRANCE - NODE_RADIUS)
                 //利用條件運算子?:來確保回傳的值不會大於節點數
-                return quotient + 1 > NODE_COUNT_ONESIDE ? -1 : quotient + 1;
+                return quotient + 1 >= NODE_COUNT_ONESIDE ? -1 : quotient + 1;
             else
                 //沒有節點符合下棋子的適當位置
                 return -1;

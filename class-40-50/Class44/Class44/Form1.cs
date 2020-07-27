@@ -37,7 +37,8 @@ namespace Class44
                 this.Close();
         }
 
-        private PieceType nextPieceType=PieceType.BLACK;
+        private PieceType nextPieceType=PieceType.BLACK;
+
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -58,6 +59,11 @@ namespace Class44
                 Cursor = Cursors.Hand;
             else
                 Cursor = Cursors.Default;
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
         }
     }
