@@ -28,7 +28,7 @@ namespace Class44
         {
             //Point formPositon = new Point();
             //此處我想要重構，在return時再用new 建構一個Point物件回傳即可
-            return new Point(nodeId.X * 75 + OFFSET, nodeId.Y * 75 + OFFSET);
+            return new Point(nodeId.X * NODE_DISTRANCE + OFFSET, nodeId.Y * NODE_DISTRANCE + OFFSET);
         }
 
         internal static Piece PlaceAPiece(int x, int y, PieceType pieceColor)
@@ -94,6 +94,7 @@ namespace Class44
             pos -= OFFSET;
             int quotient = pos / NODE_DISTRANCE;
             int remainder = pos % NODE_DISTRANCE;
+            //若大於可下棋子的節點數
             if (quotient > NODE_COUNT_ONESIDE)
                 return -1;
             if (remainder <= NODE_RADIUS)
@@ -101,6 +102,7 @@ namespace Class44
                 return quotient;
             }
             else if (remainder >= NODE_DISTRANCE - NODE_RADIUS)
+                //利用條件運算子?:來確保回傳的值不會大於節點數
                 return quotient + 1 > NODE_COUNT_ONESIDE ? -1 : quotient + 1;
             else
                 //沒有節點符合下棋子的適當位置

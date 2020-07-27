@@ -41,17 +41,14 @@ namespace Class44
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
+            Piece piece = Board.PlaceAPiece(e.X, e.Y, nextPieceType);
+            if (piece==null)
+                return;            
+            Controls.Add(piece);
             if (nextPieceType==PieceType.BLACK)
-            {
-                Controls.Add(Board.PlaceAPiece(e.X, e.Y,nextPieceType));
                 nextPieceType = PieceType.WHITE;
-            }
             else if (nextPieceType==PieceType.WHITE)
-            {
-                Controls.Add(Board.PlaceAPiece(e.X,e.Y,nextPieceType));
                 nextPieceType = PieceType.BLACK;
-            }
-
         }
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
