@@ -50,7 +50,7 @@ namespace Class46
                 {
                     //略過中心點（自己位置）不檢查，當然要輻射出去八方
                     if (xDir == 0 && yDir == 0)
-                        continue;//若是現在下的這一子則跳出最接近這個break的封閉式迴圈while，換下個方向檢查
+                        continue;//若是現在下的這一子則略過後面的程式碼，換下個方向檢查
                     while (count < 5)
                     {
                         //int centerX = lastPlaceNode.X;

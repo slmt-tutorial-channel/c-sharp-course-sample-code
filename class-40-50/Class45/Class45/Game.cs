@@ -31,7 +31,7 @@ namespace Class45
         }
 
 
-        private static void CheckWiner()
+        private static void CheckWinner()
         {
 
         }
