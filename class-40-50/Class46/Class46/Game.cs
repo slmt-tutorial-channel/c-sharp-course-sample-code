@@ -38,37 +38,46 @@ namespace Class46
 
         private static void CheckWinner(Point lastPlaceNode)
         {
-            //count記下連成幾子
+            //count記下連成幾子-//記錄現在看到幾顆相同的棋子
             int count = 1;
             int targetX = 0, targetY = 0;
             //PieceType currChkNodePiecType = PieceType.NONE;
-            while (count < 5)
+            //while (count < 5)
+            //{
+            for (int xDir = -1; xDir <= 1; xDir++)
             {
-                for (int xDir = -1; xDir <= 1; xDir++)
+                for (int yDir = -1; yDir <= 1; yDir++)
                 {
-                    for (int yDir = -1; yDir <= 1; yDir++)
+                    while (count < 5)
                     {
+                        //int centerX = lastPlaceNode.X;
+                        //int centerY= lastPlaceNode.Y;
+
                         targetX = lastPlaceNode.X + xDir * count;
                         targetY = lastPlaceNode.Y + yDir * count;
                         //略過中心點（自己位置）不檢查，當然要輻射出去八方
                         if (xDir == 0 && yDir == 0)
-                            continue;
+                            break;//若是現在下的這一子則跳出最接近這個break的封閉式迴圈while，換下個方向檢查
                         if (targetX < 0 || targetY < 0 || targetX >= Board.NODE_COUNT_ONESIDE ||
-                            targetY >= Board.NODE_COUNT_ONESIDE || 
-                            Board.GetPieceType(targetX, targetY)== PieceType.NONE)                        
-                            continue;
+                            targetY >= Board.NODE_COUNT_ONESIDE ||
+                            Board.GetPieceType(targetX, targetY) == PieceType.NONE)
+                            break;
+                        //檢查顏色是否相同
                         if (targetX < 0 || targetY < 0 || targetX >= Board.NODE_COUNT_ONESIDE ||
                             targetY >= Board.NODE_COUNT_ONESIDE ||
                              Board.GetPieceType(targetX, targetY) != currentPlayer)
-                            return;
+                            break;//若連不到五子則跳出最接近這個break的封閉式迴圈
                         //要五子連棋
                         count++;
                     }
+                    if (count == 5)
+                        winner = currentPlayer;
                 }
-                return;
             }
-            if (count == 5)
-                winner = currentPlayer;
+            return;
+            //}
+            //if (count == 5)
+            //    winner = currentPlayer;
 
         }
 

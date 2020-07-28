@@ -44,6 +44,7 @@ namespace Class46
             if (piece != null)//如果可以下棋子
             {
                 Controls.Add(piece);
+                //檢查是否有人獲勝
                 if (Game.Winner == PieceType.BLACK)
                 {
                     MessageBox.Show("黑子獲勝！");
