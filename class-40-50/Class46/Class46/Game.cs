@@ -48,6 +48,9 @@ namespace Class46
             {
                 for (int yDir = -1; yDir <= 1; yDir++)
                 {
+                    //略過中心點（自己位置）不檢查，當然要輻射出去八方
+                    if (xDir == 0 && yDir == 0)
+                        continue;//若是現在下的這一子則跳出最接近這個break的封閉式迴圈while，換下個方向檢查
                     while (count < 5)
                     {
                         //int centerX = lastPlaceNode.X;
@@ -55,13 +58,10 @@ namespace Class46
 
                         targetX = lastPlaceNode.X + xDir * count;
                         targetY = lastPlaceNode.Y + yDir * count;
-                        //略過中心點（自己位置）不檢查，當然要輻射出去八方
-                        if (xDir == 0 && yDir == 0)
-                            break;//若是現在下的這一子則跳出最接近這個break的封閉式迴圈while，換下個方向檢查
                         if (targetX < 0 || targetY < 0 || targetX >= Board.NODE_COUNT_ONESIDE ||
                             targetY >= Board.NODE_COUNT_ONESIDE ||
                             Board.GetPieceType(targetX, targetY) == PieceType.NONE)
-                            break;
+                            break;//若該位置無子則跳出最近的迴圈
                         //檢查顏色是否相同
                         if (targetX < 0 || targetY < 0 || targetX >= Board.NODE_COUNT_ONESIDE ||
                             targetY >= Board.NODE_COUNT_ONESIDE ||
@@ -71,7 +71,7 @@ namespace Class46
                         count++;
                     }
                     if (count == 5)
-                        winner = currentPlayer;
+                        winner = currentPlayer;//決定了贏家
                 }
             }
             return;
