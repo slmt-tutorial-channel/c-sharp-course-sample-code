@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -52,6 +53,7 @@ namespace Class46Ex_4
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             Piece piece = Game.PlaceAPiece(e.X, e.Y);
+            Piece pieceAuto = Game.autoPlay();//自動下棋
             if (piece != null)//如果可以下棋子
             {
                 //移除頂端提示之棋子
@@ -59,6 +61,17 @@ namespace Class46Ex_4
                 //加入現在下的棋子
                 Controls.Add(piece);
                 pieceCount++;
+                this.Refresh();
+                //要做個延遲
+                Thread.Sleep(200);
+                //自動下棋
+                if (pieceAuto != null)
+                {
+                    Controls.Add(pieceAuto);
+                    pieceCount++;
+                }
+                else
+                    MessageBox.Show("棋盤已滿！");
                 //加入頂端提示的棋子
                 Controls.Add(Board.PlaceCurrPlayerPiece());
                 pieceCount++;

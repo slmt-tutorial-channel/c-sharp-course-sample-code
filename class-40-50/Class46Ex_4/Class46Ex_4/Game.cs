@@ -34,6 +34,18 @@ namespace Class46Ex_4
             return piece;
         }
 
+        //要由表單form1 Controls.Add()呼叫
+        internal static Piece autoPlay()
+        {
+            Point p= Board.autoPlayAvailable();
+            if (p.X == -1)
+                return null;
+            else
+                return PlaceAPiece(p.X, p.Y);
+        }
+
+
+
         //要給form1呼叫的
         internal static bool CanBePlaced(int x, int y)
         {
@@ -56,7 +68,6 @@ namespace Class46Ex_4
             //清除棋盤上棋子的分布記錄
             Board.PiecesClear();
         }
-
 
         private static void checkWinner(Point lastPlaceNode)
         {
@@ -213,15 +224,15 @@ namespace Class46Ex_4
                     }
                     //else
                     //{
-                        count = 1;
-                        pieceNoneCtr = 0;
+                    count = 1;
+                    pieceNoneCtr = 0;
                     //}
                 }
             }
-            
+
             if (count == 5)
             {
-                if (pieceNoneCtr == 1)                
+                if (pieceNoneCtr == 1)
                     almostWinner = currentPlayer;//往下就出函式了，故不必再return
             }
         }

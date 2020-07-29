@@ -21,6 +21,9 @@ namespace Class46Ex_4
         //棋盤節點數
         internal static readonly int NODE_COUNT_ONESIDE = 9;
         //黑子、白子，半徑一樣
+        //可下棋子的範圍
+        private static readonly int PIECE_AVAILABLE = (NODE_COUNT_ONESIDE-1) *
+            NODE_DISTRANCE+OFFSET;
         internal static readonly int PIECE_RADIUS = Properties.Resources.black.Height / 2;
         //二維陣列，記錄棋盤上的棋子及其位置
         private static Piece[,] pieces = new Piece[NODE_COUNT_ONESIDE, NODE_COUNT_ONESIDE];
@@ -40,6 +43,8 @@ namespace Class46Ex_4
 
         //和C++一樣 Class內之成員若沒有存取修飾詞，預設即為private
         static Piece pcCurrPlayer=null;
+        internal static Piece CurrPiece { get { return pcCurrPlayer; }  }
+
         static int xPos= OFFSET+ Board.NODE_COUNT_ONESIDE / 2 * NODE_DISTRANCE;
         //控制棋盤上方提示現在輪到誰下棋子了
         internal static void PcCurrPlayer() {
@@ -98,6 +103,38 @@ namespace Class46Ex_4
             }
             return null;
         }
+
+        internal static Point autoPlayAvailable()
+        {
+            Random randomX = new Random(Board.CurrPiece.Location.X);
+            Random randomY = new Random(Board.CurrPiece.Location.Y);
+            //一直找到可以放棋子的位置
+            int randomXpos = randomX.Next() % PIECE_AVAILABLE;
+            int randomYpos = randomY.Next() % PIECE_AVAILABLE;
+            //小心成為無窮迴圈：先檢查有沒有位置可下棋子
+            bool chkPos=false;
+            foreach (Piece item in pieces)
+            {
+                if (item==null)
+                {
+                    chkPos = true;
+                    break;
+                }
+            }
+            if (chkPos)
+            {
+                while (!CanBePlaced(randomXpos, randomYpos))
+                {
+                    randomXpos = randomX.Next() % PIECE_AVAILABLE;
+                    randomYpos = randomY.Next() % PIECE_AVAILABLE;
+                }
+                return new Point(randomXpos, randomYpos);
+
+            }
+            else//沒有位置可下棋了
+                return new Point(-1,-1);
+        }
+
 
         //指定static則不必再用new創建執行個體才能用此成員函式(重構小山老師菩薩的)        
         internal static bool CanBePlaced(int x, int y)
