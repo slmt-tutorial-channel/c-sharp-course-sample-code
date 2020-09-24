@@ -30,6 +30,7 @@ $ git clone https://github.com/slmt-tutorial-channel/c-sharp-course-sample-code.
 - [第 3 課 - 程式結構與進入點](class-1-10/Class3)
 - [第 4 課 - 視窗與按鈕](class-1-10/Class4)
 - [第 40 課 - 五子棋小遊戲 (一) - 棋盤與棋子](class-31-40/Class40)
+- [第 41 課 - 五子棋小遊戲 (二) - 動態建立棋子](class-31-40/Class41)
 - [第 47 課 - 多型性 (Polymorphism)](class-41-50/Class47)
 - [第 48 課 - 介面 (Interface)](class-41-50/Class48)
 
