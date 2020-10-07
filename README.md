@@ -33,6 +33,7 @@ $ git clone https://github.com/slmt-tutorial-channel/c-sharp-course-sample-code.
 - [第 41 課 - 五子棋小遊戲 (二) - 動態建立棋子](class-41-50/Class41)
 - [第 47 課 - 多型性 (Polymorphism)](class-41-50/Class47)
 - [第 48 課 - 介面 (Interface)](class-41-50/Class48)
+- [第 49 課 - 串列 (List)](class-41-50/Class49)
 
 ## 錯誤回報
 
