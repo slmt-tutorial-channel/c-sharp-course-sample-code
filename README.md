@@ -34,6 +34,7 @@ $ git clone https://github.com/slmt-tutorial-channel/c-sharp-course-sample-code.
 - [第 47 課 - 多型性 (Polymorphism)](class-41-50/Class47)
 - [第 48 課 - 介面 (Interface)](class-41-50/Class48)
 - [第 49 課 - 串列 (List)](class-41-50/Class49)
+- [第 50 課 - 泛型 (Generics) 的初步介紹](class-41-50/Class50)
 
 ## 錯誤回報
 
