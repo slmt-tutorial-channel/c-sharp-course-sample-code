@@ -19,14 +19,14 @@ namespace Demo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Building b = new Building();
+            Building<Worker> b = new Building<Worker>();
 
             b.Add(new Worker("小山貓"));
             b.Add(new Worker("大山貓"));
 
             b.Add(new Resident("哈哈"));
 
-            MessageBox.Show(b.WhoAreIn());
+            MessageBox.Show(b.ToString());
         }
     }
 }

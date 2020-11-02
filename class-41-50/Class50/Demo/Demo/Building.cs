@@ -15,13 +15,13 @@ namespace Demo
             people.Add(person);
         }
 
-        public String WhoAreIn()
+        public override String ToString()
         {
             String output = "這棟大樓裡有：\r\n";
 
             for (int i = 0; i < people.Count; i++)
             {
-                output += people[i].WhoAreYou() + "\r\n";
+                output += people[i].ToString() + "\r\n";
             }
 
             return output;

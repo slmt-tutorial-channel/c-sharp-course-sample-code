@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Demo
 {
-    class Resident : Person
+    class Resident
     {
         private String name;
 
@@ -15,7 +15,7 @@ namespace Demo
             this.name = name;
         }
 
-        public override String WhoAreYou()
+        public override String ToString()
         {
             return "住戶 " + name;
         }
