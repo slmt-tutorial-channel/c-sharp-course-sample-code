@@ -39,7 +39,7 @@ namespace Gomoku
             if (nodeIdY == -1)
                 return NO_MATCH_NODE;
 
-            return new Point(nodeIdY, nodeIdY);
+            return new Point(nodeIdX, nodeIdY);
         }
 
         private int FindTheClosetNode(int pos)
